@@ -6,7 +6,7 @@
     <title>Estética</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/Estilos/colores.css">
+    <link rel="stylesheet" href="Estilos/colores.css">
 </head>
 <body>
 
@@ -43,101 +43,43 @@
     <!-- Catálogo de Servicios -->
     <div id="servicios" class="container">
         <h2 class="my-4">Nuestros Servicios</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/corte.jpg" class="card-img-top" alt="Corte de Cabello">
-                    <div class="card-body">
-                        <h5 class="card-title">Corte de Cabello</h5>
-                        <p class="card-text">Corte de cabello unisex con estilo moderno y personalizado.</p>
-                    </div>
-                </div>
+        <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php include '/PHP/mostrar_servicios.php'; ?>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/pedicure.jpg" class="card-img-top" alt="Manicura y Pedicura">
-                    <div class="card-body">
-                        <h5 class="card-title">Manicura y Pedicura</h5>
-                        <p class="card-text">Embellecimiento y cuidado de tus uñas con acabados profesionales.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/inte.png" class="card-img-top" alt="Tinte de Cabello">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinte de Cabello</h5>
-                        <p class="card-text">Colores vibrantes, cobertura total o reflejos.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/eventos.jfif" class="card-img-top" alt="Peinado para Eventos">
-                    <div class="card-body">
-                        <h5 class="card-title">Peinado para Eventos</h5>
-                        <p class="card-text">Peinados elegantes y personalizados para cualquier ocasión.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/depila.jpg" class="card-img-top" alt="Depilación">
-                    <div class="card-body">
-                        <h5 class="card-title">Depilación</h5>
-                        <p class="card-text">Depilación con cera para diferentes áreas del cuerpo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/trata.jpg" class="card-img-top" alt="Tratamientos Capilares">
-                    <div class="card-body">
-                        <h5 class="card-title">Tratamientos Capilares</h5>
-                        <p class="card-text">Hidratación, reparación y fortalecimiento del cabello.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
         </div>
     </div>
 
     <!-- Promociones -->
     <div id="promociones" class="container my-4">
         <h2 class="my-4">Promociones</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/promo1.jpg" class="card-img-top" alt="Promoción 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Promoción 1</h5>
-                        <p class="card-text">Aplicación de tinte, corte y tratamiento hidratante por $370.</p>
-                    </div>
-                </div>
+        <div id="promotionsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php include '/PHP/mostrar_promociones.php'; ?>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/promo2.jpeg" class="card-img-top" alt="Promoción 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Promoción 2</h5>
-                        <p class="card-text">Corte de cabello padre e hijo por $150.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="/imagenes/promo3.jpg" class="card-img-top" alt="Promoción 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Promoción 3</h5>
-                        <p class="card-text">Manicura y pedicura con descuento del 20% los lunes.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
         </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
-
