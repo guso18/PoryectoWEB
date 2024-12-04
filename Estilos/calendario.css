@@ -1,0 +1,106 @@
+body {
+    background: #2C3E50; /* Azul oscuro opaco */
+    background: -webkit-linear-gradient(to right, #34495E, #2C3E50); /* Degradado gris azulado a azul oscuro */
+    background: linear-gradient(to right, #34495E, #2C3E50);
+    color: #ECF0F1; /* Blanco suave */
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.calendar {
+    background-color: #ECF0F1; /* Blanco suave */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 10px 29px -7px rgba(63, 63, 63, 0.48);
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1ABC9C; /* Verde menta apagado */
+    color: #ECF0F1; /* Blanco suave */
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.calendar-header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ECF0F1; /* Blanco suave */
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+}
+
+.calendar-day {
+    border: 1px solid #ECF0F1; /* Blanco suave */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #34495E; /* Gris azulado */
+    color: #ECF0F1; /* Blanco suave */
+}
+
+.calendar-day:hover {
+    background-color: #1ABC9C !important; /* Verde menta apagado */
+    transition: background-color 0.3s ease;
+}
+
+.calendar-day.selected {
+    border: 1px solid #16A085; /* Verde oscuro */
+    background-color: rgba(26, 188, 156, 0.7); /* Verde menta semi-transparente */
+}
+
+#prevBtn, #nextBtn {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border-radius: 50%;
+    background-color: #ECF0F1; /* Blanco suave */
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: #ddd !important;
+    transition: background-color 0.3s ease;
+}
+
+#selectedDate {
+    font-family: 'Poppins';
+    text-align: center;
+    margin-top: 20px;
+    color: #ECF0F1; /* Blanco suave */
+}
+
+#currentMonth {
+    font-family: 'Poppins';
+    font-size: 18px;
+    color: #ECF0F1; /* Blanco suave */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#reservationForm {
+    padding: 20px;
+    background-color: #34495E; /* Gris azulado */
+    border-radius: 5px;
+    box-shadow: 0 10px 29px -7px rgba(63, 63, 63, 0.48);
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+    

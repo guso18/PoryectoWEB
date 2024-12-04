@@ -1,0 +1,92 @@
+:root {
+    --azul-oscuro: #2C3E50; /* Azul oscuro opaco */
+    --gris-azulado: #34495E; /* Gris azulado */
+    --blanco-suave: #ECF0F1; /* Blanco suave */
+    --verde-menta: #1ABC9C; /* Verde menta apagado */
+    --verde-oscuro: #16A085; /* Verde oscuro */
+    --verde-claro: #2ECC71; /* Verde más claro */
+    --azul-claro: #2980B9; /* Azul claro para destacar enlaces */
+}
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-suave);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--verde-menta);
+}
+
+p {
+    color: var(--blanco-suave);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--gris-azulado);
+    color: var(--blanco-suave);
+}
+
+.nav-link {
+    color: var(--blanco-suave);
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--azul-claro);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--verde-menta);
+    border-color: var(--verde-oscuro);
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-oscuro);
+    border-color: var(--verde-menta);
+}
+
+/* Carrusel */
+.carousel-item {
+    height: 500px;
+    background-color: var(--gris-azulado);
+    color: var(--blanco-suave);
+}
+
+.carousel-caption {
+    background-color: rgba(44, 62, 80, 0.8); /* Fondo semi-transparente */
+    color: var(--blanco-suave);
+}
+
+/* Formulario */
+.form-control {
+    border-color: var(--gris-azulado);
+}
+
+.form-control:focus {
+    border-color: var(--verde-menta);
+    box-shadow: 0 0 5px var(--verde-menta);
+}
+
+label {
+    color: var(--blanco-suave); /* Cambiar el color a blanco */
+    font-weight: bold; /* Añadir negrita para mejorar la visibilidad */
+}
+
+/* Tarjetas de servicios */
+.card {
+    background-color: var(--gris-azulado);
+    color: var(--blanco-suave);
+}
+
+.card-title {
+    color: var(--verde-menta);
+}
+
+.card-text {
+    color: var(--blanco-suave);
+}
