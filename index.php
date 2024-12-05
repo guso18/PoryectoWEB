@@ -13,7 +13,7 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Estética unisex LA OVEJA</a>
+        <a class="navbar-brand" href="#"> <img src="imagenes/unisex-salon-logo-LA OVEJA.PNG" alt="Logotipo" style="height: 40px; margin-right: 10px;"> Estética unisex LA OVEJA </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,6 +32,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="HTMLS/registro.php">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="HTMLS/login_empleado.php">Empleados</a>
                     </li>
                 </ul>
             </div>

@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Usuario - Estética</title>
-    <link href="../Estilos/colores.css" rel="stylesheet">
-    <link href="../Estilos/cliente.ss" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../Estilos/colores.css">
 </head>
-
 <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.php">Estética unisex LA OVEJA</a>
+            <a class="navbar-brand" href="#">
+                <img src="../imagenes/unisex-salon-logo-LA OVEJA.PNG" alt="Logotipo" style="height: 40px; margin-right: 10px;">
+                Estética unisex LA OVEJA
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
