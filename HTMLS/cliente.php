@@ -27,7 +27,7 @@
                         <a class="nav-link" href="calendario.php">Calendario de Disponibilidad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
