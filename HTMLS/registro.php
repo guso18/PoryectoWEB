@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Cliente - Estética</title>
-    <link href="../Estilos/colores.css" rel="stylesheet">
+    <link href="Estilos/colores.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -17,7 +17,6 @@
             include '../configuracion/test.php';
 
             // Recoger y limpiar los datos del formulario
-            global $conn;
             $nombre = $conn->real_escape_string($_POST['nombre']);
             $apellido = $conn->real_escape_string($_POST['apellido']);
             $telefono = $conn->real_escape_string($_POST['telefono']);
@@ -31,7 +30,10 @@
 
             // Ejecutar la consulta y comprobar si fue exitosa
             if ($conn->query($sql) === TRUE) {
-                echo '<div class="alert alert-success" role="alert">Registro exitoso!</div>';
+                echo '<div class="alert alert-success" role="alert">Registro exitoso! Redirigiendo a la página principal...</div>';
+                // Redirigir al dashboard después de 3 segundos
+                header("Refresh: 3; url=cliente.php");
+                exit();
             } else {
                 echo '<div class="alert alert-danger" role="alert">Error: ' . $sql . '<br>' . $conn->error . '</div>';
             }

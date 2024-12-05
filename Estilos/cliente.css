@@ -1,0 +1,25 @@
+/* Estilos específicos para la vista del cliente */
+body {
+    background-color: #2C3E50; /* color de fondo */
+}
+
+.navbar {
+    background-color: #34495E; /* color de fondo de la barra de navegación */
+    color: #ECF0F1;
+}
+
+.card {
+    border: 1px solid #34495E; /* borde de las tarjetas */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    color: #333333; /* color del título de las tarjetas */
+}
+
+.card-text {
+    color: #ECF0F1; /* color del texto de las tarjetas */
+}
+
+/* Añadir más estilos según sea necesario */
