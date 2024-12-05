@@ -7,23 +7,22 @@
 </head>
 
 <body>
-    <?php
-    // Establecer la conexión a la base de datos MySQL
-    // mysqli_connect("servidor", "usuario", "clave", "base de datos")
-    // Reemplaza estos parámetros con tus propios datos de conexión
-    $enlace = mysqli_connect("localhost", "root", "", "estetica");
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "estetica";
 
-    // Verificar si la conexión fue exitosa
-    if (!$enlace) {
-        // Si la conexión falla, se termina el script y se muestra un mensaje de error
-        die("No pudo conectarse a la base de datos " . mysqli_connect_error());
-    }
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Si la conexión fue exitosa, se muestra un mensaje de éxito
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+} else {
     echo "Conexion exitosa";
+}
+?>
 
-    // Cerrar la conexión a la base de datos
-    mysqli_close($enlace);
-    ?>
 </body>
 </html>
