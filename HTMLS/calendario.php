@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-8">
                 <h2>Reservar Cita</h2>
-                <form id="reservationForm" action="calendario.php" method="POST">
+                <form id="reservationForm" method="POST">
                     <div class="form-group">
                         <label for="name">Nombre del Cliente</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -67,33 +67,43 @@
     </div>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../configuracion/test.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include '../configuracion/test.php';
 
-        $name = $conn->real_escape_string($_POST['name']);
-        $email = $conn->real_escape_string($_POST['email']);
-        $services = isset($_POST['service']) ? implode(", ", $_POST['service']) : '';
-        $time = $conn->real_escape_string($_POST['time']);
-        $selectedDate = $conn->real_escape_string($_POST['selectedDate']); // Asegúrate de capturar esta fecha correctamente
+    $name = $conn->real_escape_string($_POST['name']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $services = isset($_POST['service']) ? implode(", ", $_POST['service']) : '';
+    $time = $conn->real_escape_string($_POST['time']);
+    $selectedDate = $conn->real_escape_string($_POST['selectedDate']); // Asegúrate de capturar esta fecha correctamente
 
+    // Verificar si ya existe una cita en el mismo horario y fecha
+    $sql_check = "SELECT * FROM citas WHERE Fecha_Cita = '$selectedDate $time' AND Estado = 'Programada'";
+    $result_check = $conn->query($sql_check);
+
+    if ($result_check->num_rows > 0) {
+        // Ya existe una cita en el mismo horario y fecha
+        echo '<div class="alert alert-danger" role="alert">Error: Ya existe una cita agendada para esa fecha y horario.</div>';
+    } else {
         // Asumiendo que id_Empleado e id_Servicio son determinados de alguna manera
         $id_empleado = 1; // Este es un ejemplo, asegúrate de obtener el ID correcto
         $id_servicio = 1; // Este es un ejemplo, asegúrate de obtener el ID correcto
 
-        $sql = "INSERT INTO citas (id_Cliente, id_Empleado, id_Servicio, Fecha_Cita, Estado) VALUES ((SELECT id_Cliente FROM clientes WHERE Email = '$email'), $id_empleado, $id_servicio, '$selectedDate $time', 'Programada')";
+        $sql_insert = "INSERT INTO citas (id_Cliente, id_Empleado, id_Servicio, Fecha_Cita, Estado) VALUES ((SELECT id_Cliente FROM clientes WHERE Email = '$email'), $id_empleado, $id_servicio, '$selectedDate $time', 'Programada')";
 
-        if ($conn->query($sql) === TRUE) {
-            echo '<div class="alert alert-success" role="alert">Cita reservada con éxito! Redirigiendo al dashboard...</div>';
+        if ($conn->query($sql_insert) === TRUE) {
+            echo '<div class="alert alert-success" role="alert">Cita reservada con éxito! Redirigiendo al menú...</div>';
             // Redirigir al dashboard después de 3 segundos
             header("Refresh: 3; url=cliente.php");
             exit();
         } else {
-            echo '<div class="alert alert-danger" role="alert">Error: ' . $sql . '<br>' . $conn->error . '</div>';
+            echo '<div class="alert alert-danger" role="alert">Error: ' . $sql_insert . '<br>' . $conn->error . '</div>';
         }
-
-        $conn->close();
     }
-    ?>
+
+    $conn->close();
+}
+?>
+
 
     <script src="../Scripts/calendario.js"></script>
     <script>

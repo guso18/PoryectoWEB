@@ -5,7 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function loadAppointments() {
-    appointments = localStorage.getItem('appointments') ? JSON.parse(localStorage.getItem('appointments')) : [];
+    fetch('PHP/get_appointments.php')
+        .then(response => response.json())
+        .then(data => {
+            appointments = data;
+            renderCalendar();
+        })
+        .catch(error => console.error('Error cargando citas:', error));
 }
 
 const reservationForm = document.getElementById('reservationForm');
@@ -25,7 +31,10 @@ reservationForm.addEventListener('submit', function(event) {
     const appointmentDate = selectedDate.toISOString().split('T')[0];
 
     // Verificar si la fecha y hora ya están ocupadas
-    const isSlotTaken = appointments.some(appointment => appointment.date === appointmentDate && appointment.time === time);
+    const isSlotTaken = appointments.some(appointment => {
+        const [date, timeSlot] = appointment.Fecha_Cita.split(' ');
+        return date === appointmentDate && timeSlot === time;
+    });
 
     if (isSlotTaken) {
         alert('Esta fecha y hora ya están ocupadas. Por favor selecciona otro horario.');
@@ -38,10 +47,23 @@ reservationForm.addEventListener('submit', function(event) {
             services: services
         };
 
-        appointments.push(newAppointment);
-        localStorage.setItem('appointments', JSON.stringify(appointments));
-        alert('Cita agendada, pronto le llegará un correo de su cita');
-        window.location.href = 'index.html';
+        fetch('PHP/save_appointment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newAppointment)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert('Cita agendada con éxito!');
+                window.location.href = 'HTMLS/cliente.php';
+            }
+        })
+        .catch(error => console.error('Error guardando citas:', error));
     }
 });
 
@@ -115,65 +137,3 @@ function formatDate(date) {
 
 renderCalendar();
 updateSelectedDate();
-
-
-
-//cuando queremos hacer ya backend
-function loadAppointments() {
-    fetch('citas.json')
-        .then(response => response.json())
-        .then(data => {
-            appointments = data;
-        })
-        .catch(error => console.error('Error cargando citas:', error));
-}
-function saveAppointments() {
-    fetch('citas.json', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(appointments)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error guardando citas');
-        }
-    })
-    .catch(error => console.error('Error guardando citas:', error));
-}
-
-document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const time = document.getElementById('time').value;
-    const services = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-
-    if (!selectedDate || !time) {
-        alert('Por favor selecciona una fecha y un horario.');
-        return;
-    }
-
-    const appointmentDate = selectedDate.toISOString().split('T')[0];
-
-    const isSlotTaken = appointments.some(appointment => appointment.date === appointmentDate && appointment.time === time);
-
-    if (isSlotTaken) {
-        alert('Esta fecha y hora ya están ocupadas. Por favor selecciona otro horario.');
-    } else {
-        const newAppointment = {
-            date: appointmentDate,
-            time: time,
-            name: name,
-            email: email,
-            services: services
-        };
-
-        appointments.push(newAppointment);
-        saveAppointments();
-        alert('Cita agendada, pronto le llegará un correo de su cita');
-        window.location.href = 'index.html';
-    }
-});

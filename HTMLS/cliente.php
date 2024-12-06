@@ -25,7 +25,7 @@
                         <a class="nav-link active" aria-current="page" href="#catalogo">Catálogo de Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="calendario.php">Calendario de Disponibilidad</a>
+                        <a class="nav-link" href="calendar.php">Calendario de Disponibilidad</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Cerrar Sesión</a>
