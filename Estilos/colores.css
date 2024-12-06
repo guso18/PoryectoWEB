@@ -90,3 +90,24 @@ label {
 .card-text {
     color: var(--blanco-suave);
 }
+
+/* Estilos para el footer */
+footer {
+    background-color: var(--azul-oscuro); /* Ajusta este color según tu preferencia */
+    color: var(--blanco-suave); /* Ajusta este color según tu preferencia */
+}
+
+footer a {
+    color: var(--blanco-suave); /* Ajusta este color según tu preferencia */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--gris-claro); /* Ajusta este color según tu preferencia */
+    text-decoration: underline;
+}
+
+/* Estilo para los horarios de atención en el footer */
+.horarios-atencion {
+    color: black;
+}

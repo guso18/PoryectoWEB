@@ -141,6 +141,27 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="text-center text-lg-start" style="background-color: var(--azul-oscuro); color: var(--blanco-suave);">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Ubicación</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d943.0843174673684!2d-98.20499310320632!3d19.00485427657552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfbf58ad37be01%3A0xbbf554e277df72cb!2s104-B%2C%20Cd%20Universitaria%2C%20Cdad.%20Universitaria%2C%2072592%20Heroica%20Puebla%20de%20Zaragoza%2C%20Pue.!5e0!3m2!1ses-419!2smx!4v1733460780586!5m2!1ses-419!2smx" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0" style="color: black;">
+                    <h5 class="text-uppercase">Horarios de Atención</h5>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                    <p>Sábado: 10:00 AM - 4:00 PM</p>
+                    <p>Domingo: Cerrado</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3">
+            &copy; 2023 Estética unisex LA OVEJA
+        </div>
+    </footer>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
